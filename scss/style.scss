@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: gray;
+  font-size: 50px;
+  overflow: hidden;
+  position: relative;
+}
+#hangman {
+  background-color: green;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  /*   width: 1000px;
+  height: 40vh;
+  display: bock;
+  margin: 0 auto; */
+  margin: 0 auto;
+}
+#blankContainer {
+  padding-top: 100px;
+  .blank {
+    width: 65px;
+    border-bottom: 4px solid black;
+    margin: 0 40px 70px 0;
+    text-align: center;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+#alphabets {
+  padding: 50px;
+  .alphabet {
+    padding: 40px;
+    cursor: pointer;
+  }
+}
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1050px;
+  margin: 0 auto;
+}
