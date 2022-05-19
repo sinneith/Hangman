@@ -1,4 +1,5 @@
 let randomWord;
+const blankArr = document.getElementsByClassName("blank");
 
 function callRandomWord() {
   fetch(
@@ -43,6 +44,7 @@ function paintBlanks(word) {
     const blankContainer = document.getElementById("blankContainer");
     const blank = document.createElement("div");
     blank.classList.add("blank");
+    blank.innerText = "\n";
     blankContainer.appendChild(blank);
 
     if (word[i] === "-") {
@@ -62,7 +64,6 @@ function paintBlanks(word) {
 
 function checkAlphabet(event) {
   let indexArr = [];
-  const blankArr = document.getElementsByClassName("blank");
   const letter = event.target.innerText;
 
   for (let i = 0; i < randomWord.length; i++) {

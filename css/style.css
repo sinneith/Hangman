@@ -5,13 +5,11 @@
 }
 
 body {
-  background-color: gray;
   font-size: 40px;
   overflow: hidden;
 }
 
 #hangman {
-  width: 100%;
   height: 38vh;
   position: relative;
 }
@@ -20,7 +18,32 @@ body {
   top: 20%;
   left: 50%;
   transform: translate(-50%, 0);
-  margin: 0 auto;
+}
+#hangman #over {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-55%, -20%);
+  margin-left: 250px;
+}
+#hangman #over p {
+  color: #ad0000;
+  font-weight: bold;
+}
+#hangman #over button {
+  all: unset;
+  display: block;
+  margin: 20px auto 0;
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 50px;
+  transition: 0.3s;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+#hangman #over button:hover {
+  background-color: black;
+  color: white;
 }
 
 #blankContainer {
