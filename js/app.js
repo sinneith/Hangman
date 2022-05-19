@@ -76,7 +76,7 @@ function checkAlphabet(event) {
       blankArr[indexArr[k]].innerText = letter;
     }
   } else {
-    hangman();
+    counter();
   }
 
   event.target.style.textDecoration = "line-through";
