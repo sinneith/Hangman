@@ -3,7 +3,7 @@ const blankArr = document.getElementsByClassName("blank");
 
 function callRandomWord() {
   fetch(
-    "http://api.wordnik.com/v4/words.json/randomWord?api_key=ovf2q8if4czt31jzpg32nbl445tfe4lhsaadekctmckq7tf45"
+    "https://api.wordnik.com/v4/words.json/randomWord?api_key=ovf2q8if4czt31jzpg32nbl445tfe4lhsaadekctmckq7tf45"
   )
     .then((response) => response.json())
     .then((value) => paintBlanks(value.word.toLowerCase()));
