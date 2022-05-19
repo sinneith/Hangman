@@ -10,7 +10,6 @@ let counterNum = 0;
 
 function counter() {
   counterNum += 1;
-  console.log(counterNum);
   hangman();
 }
 

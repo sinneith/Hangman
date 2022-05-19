@@ -39,7 +39,6 @@ function paintBlanks(word) {
     "y",
     "z",
   ];
-  console.log(word);
   for (let i = 0; i < word.length; i++) {
     const blankContainer = document.getElementById("blankContainer");
     const blank = document.createElement("div");
