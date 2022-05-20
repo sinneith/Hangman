@@ -1,6 +1,10 @@
 let randomWord;
 const blankArr = document.getElementsByClassName("blank");
 
+let wordLetter = [];
+let trueCounter = 0;
+let tryCounter = 0;
+
 function callRandomWord() {
   fetch(
     "https://api.wordnik.com/v4/words.json/randomWord?api_key=ovf2q8if4czt31jzpg32nbl445tfe4lhsaadekctmckq7tf45"
@@ -11,6 +15,7 @@ function callRandomWord() {
 
 function paintBlanks(word) {
   randomWord = word;
+  wordLetter = [...new Set(randomWord)];
   const alphabetArr = [
     "a",
     "b",
@@ -40,8 +45,8 @@ function paintBlanks(word) {
     "z",
   ];
   for (let i = 0; i < word.length; i++) {
-    const blankContainer = document.getElementById("blankContainer");
     const blank = document.createElement("div");
+
     blank.classList.add("blank");
     blank.innerText = "\n";
     blankContainer.appendChild(blank);
@@ -58,6 +63,7 @@ function paintBlanks(word) {
     alphabet.classList.add("alphabet");
     alphabets.appendChild(alphabet);
     alphabet.addEventListener("click", checkAlphabet);
+    alphabet.addEventListener("click", checkWin);
   }
 }
 
@@ -72,8 +78,8 @@ function checkAlphabet(event) {
   }
 
   if (randomWord.includes(letter, 0) === true) {
-    for (let k = 0; k < indexArr.length; k++) {
-      blankArr[indexArr[k]].innerText = letter;
+    for (let j = 0; j < indexArr.length; j++) {
+      blankArr[indexArr[j]].innerText = letter;
     }
   } else {
     counter();
@@ -81,6 +87,22 @@ function checkAlphabet(event) {
 
   event.target.style.textDecoration = "line-through";
   event.target.style.color = "darkgray";
+}
+
+function checkWin(event) {
+  tryCounter++;
+  for (let i = 0; i < wordLetter.length; i++) {
+    if (wordLetter[i] === event.target.innerText) {
+      trueCounter++;
+    }
+  }
+
+  if (
+    trueCounter === wordLetter.length &&
+    tryCounter < 10 + wordLetter.length
+  ) {
+    showAnswer("win");
+  }
 }
 
 callRandomWord();

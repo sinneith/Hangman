@@ -1,6 +1,7 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
-const gaveOver = document.getElementById("over");
+const gameOver = document.getElementById("over");
+const result = gameOver.querySelector("p");
 const againBtn = document.querySelector("button");
 
 ctx.lineWidth = "3";
@@ -80,15 +81,21 @@ function hangman() {
       ctx.lineTo(243, 115);
       ctx.stroke();
       ctx.strokeRect(228, 122, 20, 10);
-      showAnswer();
+      showAnswer("lose");
       break;
   }
 }
 
-function showAnswer() {
-  gaveOver.style.display = "block";
-  for (let i = 0; i < blankArr.length; i++) {
-    blankArr[i].innerText = randomWord[i];
+function showAnswer(winlose) {
+  gameOver.style.display = "block";
+
+  if (winlose === "win") {
+    result.innerText = "You Win!";
+  } else {
+    for (let i = 0; i < blankArr.length; i++) {
+      blankArr[i].innerText = randomWord[i];
+    }
+    result.innerText = "Game Over";
   }
 }
 
